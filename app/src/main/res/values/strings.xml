@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Читалочка</string>
+    <string name="tittle_first">Введите Ваш аванс:</string>
+    <string name="tittle_second">Ваша зарплата:</string>
+    <string name="button">Ввод</string>
+    <string name="tittle_kef">Введите текст:</string>
+    <string name="tittle_timer">Осталось секунд:</string>
+    <string name="buttonTest">Тест</string>
+    <string name="tittle_edit_timer">Лимит времени, сек:</string>
+</resources>
