@@ -16,6 +16,22 @@ class MainActivity : AppCompatActivity() {
     var build = ""
     private var timer: CountDownTimer? = null
 
+    var a:String = ""
+    var b:String = ""
+    var c:String = ""
+    var d:String = ""
+    var e:String = ""
+    var f:String = ""
+    var g:String = ""
+    var h:String = ""
+    var i:String = ""
+    var j:String = ""
+
+    var textCount = 0
+
+    val inputTexts: MutableList<String> = mutableListOf("")
+
+
 
     private lateinit var binding:ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,94 +39,183 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        arrayInput()
+
+        addText()
 
     }
 
-    //Ввод текста и сортировка
+    //Ввод текстов
+    fun addText(){
+        binding.addText.setOnClickListener {
+            if (textCount>10){
+                binding.info.text = "Уже 10 текстов"
+            }else{
+                when(textCount){
+                    0 -> {
+                        a = binding.input.text.toString()
+                        inputTexts.add(a)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    1 ->{
+                        b = binding.input.text.toString()
+                        inputTexts.add(b)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    2 -> {
+                        c = binding.input.text.toString()
+                        inputTexts.add(c)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    3 -> {
+                        d = binding.input.text.toString()
+                        inputTexts.add(d)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    4 -> {
+                        e = binding.input.text.toString()
+                        inputTexts.add(e)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    5 -> {
+                        f = binding.input.text.toString()
+                        inputTexts.add(f)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    6 -> {
+                        g = binding.input.text.toString()
+                        inputTexts.add(g)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    7 -> {
+                        h = binding.input.text.toString()
+                        inputTexts.add(h)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    8 -> {
+                        i = binding.input.text.toString()
+                        inputTexts.add(i)
+                        binding.input.text = null
+                        textCount++
+                    }
+                    9 -> {
+                        j = binding.input.text.toString()
+                        inputTexts.add(j)
+                        binding.input.text = null
+                        textCount++
+                    }
+
+                }
+
+            }
+            arrayInput()
+        }
+    }
+
+
+    //Разборка массива на составляющие
 
     fun arrayInput(){
+        binding.start.visibility = View.VISIBLE
 
             binding.start.setOnClickListener(View.OnClickListener {
-                if (binding.input.text.isNullOrEmpty()||binding.editTime.text.isNullOrEmpty()) {
-                    binding.info.text = "Введите текст и лимит времени!!!"
+                if (binding.editTime.text.isNullOrEmpty()) {
+                    binding.info.text = "Введите время!!!"
                 } else {
-                    inputOriginal = " " + binding.input.text.toString()
-                    var inputList = inputOriginal.split(" ").toTypedArray()
+//                    inputOriginal = " " + binding.input.text.toString()
+//                    var inputList = inputOriginal.split(" ").toTypedArray()
+                    for (i in inputTexts) {
 
-                    for (i in inputList) {
+                        val inputList = i.split(" ").toTypedArray()
+                        arraySort(inputList)
 
-                        var complete: Boolean = false
 
-                        while (!complete) {
-                            random()
-                            if (random == 0 && binding.firstTxt.text.isNullOrEmpty()) {
-                                binding.firstTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 1 && binding.secondTxt.text.isNullOrEmpty()) {
-                                binding.secondTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 2 && binding.thirdTxt.text.isNullOrEmpty()) {
-                                binding.thirdTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 3 && binding.fourthTxt.text.isNullOrEmpty()) {
-                                binding.fourthTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 4 && binding.fifthTxt.text.isNullOrEmpty()) {
-                                binding.fifthTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 5 && binding.sixthTxt.text.isNullOrEmpty()) {
-                                binding.sixthTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 6 && binding.secondTxt.text.isNullOrEmpty()) {
-                                binding.secondTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 7 && binding.eighthTxt.text.isNullOrEmpty()) {
-                                binding.eighthTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 8 && binding.ninthTxt.text.isNullOrEmpty()) {
-                                binding.ninthTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 9 && binding.tenthTxt.text.isNullOrEmpty()) {
-                                binding.tenthTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 10 && binding.eleventhTxt.text.isNullOrEmpty()) {
-                                binding.eleventhTxt.text = i.toString()
-                                complete = true
-                            }
-                            if (random == 11 && binding.twelfthTxt.text.isNullOrEmpty()) {
-                                binding.twelfthTxt.text = i.toString()
-                                complete = true
-                            }
 
-                        }
                     }
-                    binding.input.text = null
-                    binding.input.visibility = View.INVISIBLE
-                    binding.start.visibility = View.INVISIBLE
-                    binding.editTimerTittle.visibility = View.INVISIBLE
-                    binding.editTime.visibility = View.INVISIBLE
-                    binding.clean.visibility = View.VISIBLE
-                    binding.tittleInput.visibility = View.INVISIBLE
-                    binding.test.visibility = View.VISIBLE
-                    binding.info.text = "Составьте предложение из слов:"
-                    build()
-
-
                 }
 
             })
 
+    }
+
+
+    //Раскидываем пункт массива по полям
+    private fun arraySort(inputList:Array<String>){
+        binding.input.visibility = View.INVISIBLE
+        binding.start.visibility = View.INVISIBLE
+        binding.tittleInput.visibility = View.INVISIBLE
+        binding.test.visibility = View.VISIBLE
+        binding.trueWindow.visibility = View.VISIBLE
+        binding.falseWindow.visibility = View.VISIBLE
+        binding.clean.visibility = View.VISIBLE
+        binding.editTimerTittle.visibility = View.INVISIBLE
+        binding.editTime.visibility = View.INVISIBLE
+        binding.info.text = "Составьте предложение:"
+        for (i in inputList) {
+            var complete: Boolean = false
+            while (!complete) {
+                random()
+                if (random == 0 && binding.firstTxt.text.isNullOrEmpty()) {
+                    binding.firstTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 1 && binding.secondTxt.text.isNullOrEmpty()) {
+                    binding.secondTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 2 && binding.thirdTxt.text.isNullOrEmpty()) {
+                    binding.thirdTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 3 && binding.fourthTxt.text.isNullOrEmpty()) {
+                    binding.fourthTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 4 && binding.fifthTxt.text.isNullOrEmpty()) {
+                    binding.fifthTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 5 && binding.sixthTxt.text.isNullOrEmpty()) {
+                    binding.sixthTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 6 && binding.seventhTxt.text.isNullOrEmpty()) {
+                    binding.seventhTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 7 && binding.eighthTxt.text.isNullOrEmpty()) {
+                    binding.eighthTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 8 && binding.ninthTxt.text.isNullOrEmpty()) {
+                    binding.ninthTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 9 && binding.tenthTxt.text.isNullOrEmpty()) {
+                    binding.tenthTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 10 && binding.eleventhTxt.text.isNullOrEmpty()) {
+                    binding.eleventhTxt.text = i.toString()
+                    complete = true
+                }
+                if (random == 11 && binding.twelfthTxt.text.isNullOrEmpty()) {
+                    binding.twelfthTxt.text = i.toString()
+                    complete = true
+                }
+            }
+        }
+        val time = Integer.parseInt(binding.editTime.text.toString()).toLong()
+        timerDown(time * 1000)
+        binding.tittleTimer.visibility = View.VISIBLE
+        binding.timer.visibility = View.VISIBLE
     }
 
     //Составление предложения
@@ -120,16 +225,6 @@ class MainActivity : AppCompatActivity() {
         binding.test.visibility = View.VISIBLE
         exam()
         cleanRole()
-
-        var time = Integer.parseInt(binding.editTime.text.toString()).toLong()
-        timerDown(time * 1000)
-
-
-
-
-
-
-
         binding.firstTxt.setOnClickListener {
             if (!binding.firstTxt.text.isNullOrEmpty()){
                 build += " " + binding.firstTxt.text.toString()
@@ -228,8 +323,6 @@ class MainActivity : AppCompatActivity() {
         binding.clean.setOnClickListener {
             binding.build.text = null
             build = ""
-
-
         }
     }
 
@@ -273,6 +366,8 @@ class MainActivity : AppCompatActivity() {
         binding.editTime.visibility = View.VISIBLE
         binding.clean.visibility = View.INVISIBLE
         binding.test.visibility = View.INVISIBLE
+        binding.trueWindow.visibility = View.INVISIBLE
+        binding.falseWindow.visibility = View.INVISIBLE
 
 
 
@@ -295,6 +390,6 @@ class MainActivity : AppCompatActivity() {
     //генератор случайных чисел
 
     fun random(){
-        random = Random.nextInt(0, 11)
+        random = Random.nextInt(0, 12)
     }
 }

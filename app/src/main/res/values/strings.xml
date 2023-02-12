@@ -7,4 +7,5 @@
     <string name="tittle_timer">Осталось секунд:</string>
     <string name="buttonTest">Тест</string>
     <string name="tittle_edit_timer">Лимит времени, сек:</string>
+    <string name="addText">+ текст</string>
 </resources>
